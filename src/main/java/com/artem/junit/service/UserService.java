@@ -3,6 +3,7 @@ package com.artem.junit.service;
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.toMap;
 
+import com.artem.junit.dao.UserDao;
 import com.artem.junit.dto.User;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,6 +14,16 @@ import java.util.Optional;
 public class UserService {
 
     private final List<User> users = new ArrayList<>();
+    private final UserDao userDao;
+
+    public UserService(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    public boolean delete(Integer userId) {
+        var userIdLocal = 25;
+        return userDao.delete(userId);
+    }
 
     public List<User> getAll() {
         return users;

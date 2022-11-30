@@ -1,4 +1,4 @@
-package com.artem.junit.paramresolver;
+package com.artem.junit.extension;
 
 import com.artem.junit.service.UserService;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -20,6 +20,6 @@ public class UserServiceParamResolver implements ParameterResolver {
         throws ParameterResolutionException {
         var store = extensionContext.getStore(Namespace.create(UserService.class));
 
-        return store.getOrComputeIfAbsent(UserService.class, it -> new UserService());
+        return store.getOrComputeIfAbsent(UserService.class, it -> new UserService(null));
     }
 }

@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19cecfc2-298e-47c4-affb-b07c51a69332" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/artem/junit/paramresolver/UserServiceParamResolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/login-test-data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/artem/junit/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/artem/junit/TestBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/artem/junit/dao/UserDaoMock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/artem/junit/dao/UserDaoSpy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/artem/junit/extension/ConditionalExtension.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/artem/junit/extension/GlobalExtension.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/artem/junit/extension/PostProcessingExtension.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/artem/junit/extension/ThrowableExtension.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/artem/junit/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artem/junit/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/artem/junit/paramresolver/UserServiceParamResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/artem/junit/extension/UserServiceParamResolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/artem/junit/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/artem/junit/service/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +50,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_directory_selection&quot;: &quot;/home/artem/work/Project/junit-maven-starter/src/main/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/artem/default/Project/java-classes&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -51,11 +60,15 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.artem.junit.dao" />
       <recent name="com.artem.junit.dto" />
       <recent name="com.artem.junit.service" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.artem.junit" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.artem.junit.dao" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -63,8 +76,8 @@
       <command value="mvn wrapper:wrapper" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceTest$LoginTest.checkLoginFunctionalityPerformance">
-    <configuration name="UserServiceTest$LoginTest.checkLoginFunctionalityPerformance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UserServiceTest$LoginTest.loginParameterizedTest">
+    <configuration name="UserServiceTest$LoginTest.loginParameterizedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="junit-maven-starter" />
       <extension name="coverage">
         <pattern>
@@ -74,89 +87,90 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.artem.junit.service.UserServiceTest" />
       <option name="MAIN_CLASS_NAME" value="com.artem.junit.service.UserServiceTest$LoginTest" />
-      <option name="METHOD_NAME" value="checkLoginFunctionalityPerformance" />
+      <option name="METHOD_NAME" value="loginParameterizedTest(java.lang.String,java.lang.String,java.util.Optional)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest$LoginTest.loginFailIfUserDoesNotExist (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTest.shouldDeleteExistedUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="junit-maven-starter" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.artem.junit.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.artem.junit.service.UserServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.artem.junit.service.UserServiceTest$LoginTest" />
-      <option name="METHOD_NAME" value="loginFailIfUserDoesNotExist(org.junit.jupiter.api.RepetitionInfo)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest$LoginTest.loginFailIfUserDoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="junit-maven-starter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.artem.junit.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.artem.junit.service.UserServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.artem.junit.service.UserServiceTest$LoginTest" />
-      <option name="METHOD_NAME" value="loginFailIfUserDoesNotExist" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest$LoginTest.loginParameterizedTest (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="junit-maven-starter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.artem.junit.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.artem.junit.service.UserServiceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.artem.junit.service.UserServiceTest$LoginTest" />
-      <option name="METHOD_NAME" value="loginParameterizedTest(java.lang.String,java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="junit-maven-starter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.artem.junit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.artem.junit.service" />
       <option name="MAIN_CLASS_NAME" value="com.artem.junit.service.UserServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="shouldDeleteExistedUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.throwExceptionIfDatabaseIsNotAvailable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="junit-maven-starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.artem.junit.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.artem.junit.service" />
+      <option name="MAIN_CLASS_NAME" value="com.artem.junit.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="throwExceptionIfDatabaseIsNotAvailable" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.usersConvertedToMapById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="junit-maven-starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.artem.junit.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.artem.junit.service" />
+      <option name="MAIN_CLASS_NAME" value="com.artem.junit.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="usersConvertedToMapById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.usersEmptyIfNoUserAdded" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="junit-maven-starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.artem.junit.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.artem.junit.service" />
+      <option name="MAIN_CLASS_NAME" value="com.artem.junit.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="usersEmptyIfNoUserAdded" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.UserServiceTest$LoginTest.checkLoginFunctionalityPerformance" />
-      <item itemvalue="JUnit.UserServiceTest$LoginTest.loginFailIfUserDoesNotExist" />
-      <item itemvalue="JUnit.UserServiceTest$LoginTest.loginFailIfUserDoesNotExist (1)" />
-      <item itemvalue="JUnit.UserServiceTest$LoginTest.loginParameterizedTest (2)" />
-      <item itemvalue="JUnit.UserServiceTest" />
+      <item itemvalue="JUnit.UserServiceTest$LoginTest.loginParameterizedTest" />
+      <item itemvalue="JUnit.UserServiceTest.throwExceptionIfDatabaseIsNotAvailable" />
+      <item itemvalue="JUnit.UserServiceTest.usersConvertedToMapById" />
+      <item itemvalue="JUnit.UserServiceTest.shouldDeleteExistedUser" />
+      <item itemvalue="JUnit.UserServiceTest.usersEmptyIfNoUserAdded" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserServiceTest$LoginTest.checkLoginFunctionalityPerformance" />
-        <item itemvalue="JUnit.UserServiceTest$LoginTest.loginFailIfUserDoesNotExist (1)" />
-        <item itemvalue="JUnit.UserServiceTest$LoginTest.loginFailIfUserDoesNotExist" />
-        <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest$LoginTest.loginParameterizedTest (2)" />
+        <item itemvalue="JUnit.UserServiceTest$LoginTest.loginParameterizedTest" />
+        <item itemvalue="JUnit.UserServiceTest.throwExceptionIfDatabaseIsNotAvailable" />
+        <item itemvalue="JUnit.UserServiceTest.usersConvertedToMapById" />
+        <item itemvalue="JUnit.UserServiceTest.shouldDeleteExistedUser" />
+        <item itemvalue="JUnit.UserServiceTest.usersEmptyIfNoUserAdded" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +188,28 @@
       <workItem from="1660547159605" duration="596000" />
       <workItem from="1661004089500" duration="2047000" />
       <workItem from="1661025521268" duration="38000" />
-      <workItem from="1661069073570" duration="2444000" />
+      <workItem from="1661069073570" duration="9671000" />
+      <workItem from="1661153523692" duration="598000" />
+      <workItem from="1661346994673" duration="5211000" />
+      <workItem from="1667218066693" duration="721000" />
+      <workItem from="1667995548057" duration="60000" />
+      <workItem from="1667995764134" duration="1096000" />
+      <workItem from="1668006120851" duration="1015000" />
+      <workItem from="1668007291082" duration="1122000" />
+      <workItem from="1668085661823" duration="598000" />
+      <workItem from="1668185387888" duration="231000" />
+      <workItem from="1668188437482" duration="168000" />
+      <workItem from="1668199344462" duration="3213000" />
+      <workItem from="1668276477737" duration="2568000" />
+      <workItem from="1668355526871" duration="977000" />
+      <workItem from="1668409161915" duration="19000" />
+      <workItem from="1668416965193" duration="1160000" />
+      <workItem from="1668433642399" duration="615000" />
+      <workItem from="1668692460368" duration="601000" />
+      <workItem from="1669367000012" duration="619000" />
+      <workItem from="1669622768056" duration="960000" />
+      <workItem from="1669721436312" duration="861000" />
+      <workItem from="1669741385167" duration="640000" />
     </task>
     <servers />
   </component>
@@ -186,18 +221,41 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/artem/junit/service/UserServiceTest.java</url>
-          <line>167</line>
+          <line>233</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/artem/junit/service/UserServiceTest.java</url>
-          <line>136</line>
+          <line>202</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/artem/junit/extension/ConditionalExtension.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/artem/junit/service/UserService.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/artem/junit/service/UserServiceTest.java</url>
+          <line>156</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/artem/junit/service/UserServiceTest.java</url>
+          <line>142</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/junit_maven_starter$UserServiceTest__1_.ic" NAME="UserServiceTest (1) Coverage Results" MODIFIED="1661349966387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.artem.junit.service.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/junit_maven_starter$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1660392735891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.artem.junit.service.*</FILTER>
     </SUITE>

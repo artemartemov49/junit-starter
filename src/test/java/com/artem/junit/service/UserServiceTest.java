@@ -5,9 +5,17 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.lenient;
 
+import com.artem.junit.TestBase;
+import com.artem.junit.dao.UserDao;
 import com.artem.junit.dto.User;
-import com.artem.junit.paramresolver.UserServiceParamResolver;
+import com.artem.junit.extension.ConditionalExtension;
+import com.artem.junit.extension.PostProcessingExtension;
+import com.artem.junit.extension.UserServiceParamResolver;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Map;
 import java.util.Optional;
@@ -34,19 +42,35 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 @Tag("fast")
 @Tag("user")
 @TestInstance(Lifecycle.PER_METHOD)
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @ExtendWith({
-    UserServiceParamResolver.class
+    UserServiceParamResolver.class,
+    MockitoExtension.class,
+//    GlobalExtension.class,
+    PostProcessingExtension.class,
+    ConditionalExtension.class
+//    ThrowableExtension.class
 })
-public class UserServiceTest {
+public class UserServiceTest extends TestBase {
 
     private static final User IVAN = User.of(1, "Ivan", "123");
     private static final User PETR = User.of(2, "Petr", "111");
 
+    @Captor
+    private ArgumentCaptor<Integer> argumentCaptor;
+    @Mock(lenient = true)
+    private UserDao userDao;
+    @InjectMocks
     private UserService userService;
 
     UserServiceTest(TestInfo testInfo) {
@@ -59,14 +83,56 @@ public class UserServiceTest {
     }
 
     @BeforeEach
-    void prepare(UserService userService) {
+    void prepare() {
         System.out.println("Before each: " + this);
-        this.userService = userService;
+//        userService.userDao = Mockito.mock()
+//        lenient().when(userDao.delete(IVAN.getId())).thenReturn(true);
+//        Mockito.mockStatic()
+//        lenient().when(userDao.delete(IVAN.getId())).thenReturn(true);
+
+        doReturn(true).when(userDao).delete(IVAN.getId());
+//        Mockito.mock(UserDao.class, withSettings().)
+//        Mockito.mock(UserDao.class, withSettings().lenient())
+//        this.userDao = Mockito.spy(new UserDao());
+//        this.userService = new UserService(userDao);
+    }
+
+    @Test
+    void throwExceptionIfDatabaseIsNotAvailable() {
+        doThrow(RuntimeException.class).when(userDao).delete(IVAN.getId());
+
+        assertThrows(RuntimeException.class, () -> userService.delete(IVAN.getId()));
+    }
+
+    @Test
+    void shouldDeleteExistedUser() {
+        var id = IVAN.getId();
+
+        userService.add(IVAN);
+        doReturn(true).when(userDao).delete(id);
+//        Mockito.doReturn(true).when(userDao).delete(Mockito.any());
+
+//        Mockito.when(userDao.delete(IVAN.getId()))
+//            .thenReturn(true)
+//            .thenReturn(false);
+
+        var deleteResult = userService.delete(id);
+        System.out.println(userService.delete(id));
+        System.out.println(userService.delete(id));
+
+        Mockito.verify(userDao, Mockito.times(3)).delete(argumentCaptor.capture());
+
+        assertThat(argumentCaptor.getValue()).isEqualTo(IVAN.getId());
+        assertThat(deleteResult).isTrue();
     }
 
     @Test
     @DisplayName("users will be empty if users no added")
-    void usersEmptyIfNoUserAdded() {
+    void usersEmptyIfNoUserAdded() throws IOException {
+//        if (true) {
+//            throw new RuntimeException();
+//        }
+
         System.out.println("Test 1: " + this);
         var users = userService.getAll();
         assertTrue(users.isEmpty());
